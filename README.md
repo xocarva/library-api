@@ -12,9 +12,10 @@ Open endpoints require no authentication.
 
 ## Books endpoints
 
-* Show Accessible Books : `GET /books/`
-* Show A Book : `GET /books/:id/`
+* Retrieve Accessible Books : `GET /books/`
+* Retrieve A Book : `GET /books/:id/`
 * Create A Book : `POST /books/`
+* Update A Book : `PATCH /books/:id`
 
 &nbsp;
 
@@ -194,6 +195,93 @@ Open endpoints require no authentication.
     "message": "Book has been created",
     "data": {
         "bookId": 5
+    }
+}
+```
+
+#### _Error Responses_
+
+
+- **Condition** : Something went wrong accesing database.
+
+- **Code** : `500 Internal Server Error`
+
+- **Content example** : `{"error": "Error message"}`
+
+#### OR
+
+- **Condition** : ISBN already registered.
+
+- **Code** : `409 Conflict`
+
+- **Content** : `{"error": "ISBN already registered"}`
+
+
+#### OR
+
+- **Condition** : Invalid provided data.
+
+- **Code** : `400 Bad Request`
+
+- **Content example** :
+
+```json
+{
+    "error": "\"title\" must be a string"
+}
+```
+
+&nbsp;
+### Update A Book :
+
+
+- **URL** : `/books/`
+
+- **Method** : `PATCH`
+
+- **Auth required** : No
+
+- **Permissions required** : None
+
+- **Query params** : id
+
+- **Body** :
+    - title (string | min : 1 | max : 50)
+    - author (string | min : 1 | max : 50)
+    - genre (string | accepted values: 'fantasy', 'sci-fi', 'historical', 'romance', 'biography', 'comedy', 'thriller', 'essay', 'others')
+    - publisher (string | min : 1 | max : 50)
+    - releaseYear (integer | min : 1 | max : 9999)
+    - isbn (string | must be a valid ISBN 10 or ISBN 13 format)
+
+- **Body example** :
+
+```json
+{
+    "title": "Honest politicians",
+    "genre": "comedy"
+}
+```
+
+#### _Success Responses_
+
+
+- **Condition** : Provided data is correct.
+
+- **Code** : `200 Ok`
+
+- **Content example** :
+
+```json
+{
+    "message": "Book updated",
+    "data": {
+        "id": 1,
+        "title": "Honest politicians",
+        "author": "John Doe",
+        "genre": "comedy",
+        "publisher": "Bankrupt Publishing",
+        "releaseYear": 2010,
+        "isbn": "3920192011"
     }
 }
 ```

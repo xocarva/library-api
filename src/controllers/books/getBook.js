@@ -6,20 +6,20 @@ const getBook = async (req, res) => {
     let book;
 
     try {
-        book = await booksRepository.getBookById(bookId);
-    } catch (error) {
-        res.status(500);
-        res.send({error: error.message});
+        book = await booksRepository.getBookById( bookId );
+    } catch ( error ) {
+        res.status( 500 );
+        res.send({ error: error.message });
         return;
     };
 
-    if (!book) {
-        res.status(400);
-        res.send({error:'Book not found'});
+    if ( !book ) {
+        res.status( 400 );
+        res.send({ error:'Book not found' });
         return;
     };
 
-    res.status(200);
+    res.status( 200 );
     res.send({
         message: 'ok',
         data: book,

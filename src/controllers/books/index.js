@@ -1,13 +1,13 @@
 const getBooks = require('./getBooks');
 const getBook = require('./getBook');
 const createBook = require('./createBook');
-// const updateBook = require('./updateBook');
 // const deleteBook = require('./deleteBook');
+const updateBook = require('./updateBook');
 
 module.exports = {
     getBooks,
     getBook,
     createBook,
-    // updateBook,
     // deleteBook,
+    updateBook,
 };
