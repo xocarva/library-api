@@ -167,6 +167,18 @@ Open endpoints require no authentication.
     - releaseYear (required  | integer | min : 1 | max : 9999)
     - isbn (required | string | must be a valid ISBN 10 or ISBN 13 format)
 
+- **Body example** :
+
+```json
+{
+    "title": "Extraordinary APIs",
+    "author": "Jane Doe",
+    "genre": "others",
+    "publisher": "Bankrupt Publishing",
+    "releaseYear": 2022,
+    "isbn": "3849383189354"
+}
+```
 
 #### _Success Responses_
 
