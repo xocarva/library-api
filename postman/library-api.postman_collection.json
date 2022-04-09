@@ -44,6 +44,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/books/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Halitosis dragons: double nightmare\",\n    \"author\": \"John Doe\",\n    \"genre\": \"fantasy\",\n    \"publisher\": \"Bankrupt Publishing\",\n    \"releaseYear\": 2020,\n    \"isbn\": \"3849374789351\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
