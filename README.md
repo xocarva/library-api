@@ -19,7 +19,7 @@ Open endpoints require no authentication.
 
 &nbsp;
 
-### Show Accesible Books :
+### Retrieve Accesible Books :
 
 
 - **URL** : `/books/`
@@ -89,7 +89,7 @@ Open endpoints require no authentication.
 - **Content example** : `{"error": "Error message"}`
 
 &nbsp;
-### Show A Book :
+### Retrieve A Book :
 
 
 - **URL** : `/books/:id`
@@ -318,3 +318,53 @@ Open endpoints require no authentication.
 }
 ```
 
+&nbsp;
+### Delete A Book :
+
+
+- **URL** : `/books/:id`
+
+- **Method** : `DELETE`
+
+- **Auth required** : No
+
+- **Permissions required** : None
+
+- **Query params** : id
+
+- **Body** : None
+
+
+#### _Success Responses_
+
+
+- **Condition** : The books exists and it is accesible.
+
+- **Code** : `200 Ok`
+
+- **Content** : `{ "message": "Book has been deleted" }`
+
+#### _Error Responses_
+
+
+- **Condition** : Something went wrong accesing database.
+
+- **Code** : `500 Internal Server Error`
+
+- **Content example** : `{"error": "Error message"}`
+
+#### OR
+
+- **Condition** : The book with the given id does not exist.
+
+- **Code** : `404 Not found`
+
+- **Content** : `{"error": "Book not found"}`
+
+#### OR
+
+- **Condition** : The book could not be deleted.
+
+- **Code** : `400 Bad Request`
+
+- **Content** : `{"error": "Book could not be deleted"}`
