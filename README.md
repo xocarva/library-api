@@ -51,26 +51,24 @@ Open endpoints require no authentication.
 ```json
 {
     "message": "ok",
-    "data": {
-        [
-            {
-                "id": 1,
-                "title": "Extraordinary APIs",
-                "author": "Jane Doe",
-                "genre": "Guide",
-                "publisher": "Bankrupt Publishing",
-                "releaseYear": 2022
-            },
-            {
-                "id": 2,
-                "title": "Halitosis dragons: double nightmare",
-                "author": "John Doe",
-                "genre": "Fantasy",
-                "publisher": "Bankrupt Publishing",
-                "releaseYear": 2020
-            }
-        ]
-    }
+    "data": [
+        {
+            "id": 1,
+            "title": "Extraordinary APIs",
+            "author": "Jane Doe",
+            "genre": "Guide",
+            "publisher": "Bankrupt Publishing",
+            "releaseYear": 2022
+        },
+        {
+            "id": 2,
+            "title": "Halitosis dragons: double nightmare",
+            "author": "John Doe",
+            "genre": "Fantasy",
+            "publisher": "Bankrupt Publishing",
+            "releaseYear": 2020
+        }
+    ]
 }
 ```
 
