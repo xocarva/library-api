@@ -10,7 +10,7 @@ Open endpoints require no authentication.
 
 
 
-## Books related
+## Books endpoints
 
 * Show Accessible Books : `GET /books/`
 * Show A Book : `GET /books/:id/`
