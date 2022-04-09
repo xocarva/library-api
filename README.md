@@ -59,17 +59,20 @@ Open endpoints require no authentication.
             "id": 1,
             "title": "Extraordinary APIs",
             "author": "Jane Doe",
-            "genre": "Guide",
+            "genre": "others",
             "publisher": "Bankrupt Publishing",
-            "releaseYear": 2022
+            "releaseYear": 2022,
+            "isbn": "3849383189354"
         },
         {
             "id": 2,
             "title": "Halitosis dragons: double nightmare",
             "author": "John Doe",
-            "genre": "Fantasy",
+            "genre": "fantasy",
             "publisher": "Bankrupt Publishing",
-            "releaseYear": 2020
+            "releaseYear": 2020,
+            "isbn": "3849374789351"
+
         }
     ]
 }
@@ -78,11 +81,11 @@ Open endpoints require no authentication.
 #### _Error Responses_
 
 
-- **Condition** : Some condition.
+- **Condition** : Something went wrong accesing database.
 
-- **Code** : `400 Bad Request`
+- **Code** : `500 Internal Server Error`
 
-- **Content** : `{"error": "Error message"}`
+- **Content example** : `{"error": "Error message"}`
 
 &nbsp;
 ### Show A Book :
@@ -117,9 +120,10 @@ Open endpoints require no authentication.
         "id": 1,
         "title": "Extraordinary APIs",
         "author": "Jane Doe",
-        "genre": "Guide",
+        "genre": "others",
         "publisher": "Bankrupt Publishing",
-        "releaseYear": 2022
+        "releaseYear": 2022,
+        "isbn": "3849374789351"
     }
 }
 ```
@@ -161,6 +165,7 @@ Open endpoints require no authentication.
     - genre (required  | string | accepted values: 'fantasy', 'sci-fi', 'historical', 'romance', 'biography', 'comedy', 'thriller', 'essay', 'others')
     - publisher (required  | string | min : 1 | max : 50)
     - releaseYear (required  | integer | min : 1 | max : 9999)
+    - isbn (required | string | must be a valid ISBN 10 or ISBN 13 format)
 
 
 #### _Success Responses_
@@ -192,6 +197,15 @@ Open endpoints require no authentication.
 
 #### OR
 
+- **Condition** : ISBN already registered.
+
+- **Code** : `409 Conflict`
+
+- **Content** : `{"error": "ISBN already registered"}`
+
+
+#### OR
+
 - **Condition** : Invalid provided data.
 
 - **Code** : `400 Bad Request`
@@ -203,3 +217,4 @@ Open endpoints require no authentication.
     "error": "\"title\" must be a string"
 }
 ```
+

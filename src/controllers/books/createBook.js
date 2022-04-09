@@ -7,13 +7,33 @@ const createBook = async (req, res) => {
 
     try {
         await createBookSchema.validateAsync( book );
+
     } catch ( error ) {
         res.status( 400 );
         res.send({ error: error.message })
         return;
     };
 
-    let insertId
+    let isbnExists;
+
+    try {
+        const { isbn } = book;
+        const books = await booksRepository.getBooksByAttributes({ isbn });
+        isbnExists = books.length > 0;
+
+    } catch ( error ) {
+        res.status( 500 );
+        res.send({ error: error.message })
+        return;
+    };
+
+    if ( isbnExists ) {
+        res.status( 409 );
+        res.send({ error: 'ISBN already registered' });
+        return;
+    };
+
+    let insertId;
 
     try {
         insertId = await booksRepository.saveBook( book );
@@ -29,7 +49,7 @@ const createBook = async (req, res) => {
         message: 'Book has been created',
         data: {
             bookId: insertId,
-        }
+        },
     });
 };
 

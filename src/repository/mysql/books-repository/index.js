@@ -1,9 +1,11 @@
-const getBooks = require('./getBooks');
 const getBookById = require('./getBookById');
+const getBooks = require('./getBooks');
+const getBooksByAttributes = require('./getBooksByAttributes');
 const saveBook = require('./saveBook');
 
 module.exports = {
-    getBooks,
     getBookById,
+    getBooks,
+    getBooksByAttributes,
     saveBook,
 };
