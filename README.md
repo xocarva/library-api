@@ -14,6 +14,7 @@ Open endpoints require no authentication.
 
 * Show Accessible Books : `GET /books/`
 * Show A Book : `GET /books/:id/`
+* Create A Book : `POST /books/`
 
 &nbsp;
 
@@ -30,13 +31,15 @@ Open endpoints require no authentication.
 
 - **Query params** : None
 
+- **Body** : None
+
 
 #### _Success Responses_
 
 
 - **Condition** : There are no accesible Books.
 
-- **Code** : `200 OK`
+- **Code** : `200 Ok`
 
 - **Content** : `{[]}`.
 
@@ -44,7 +47,7 @@ Open endpoints require no authentication.
 
 - **Condition** : There are accesible Books.
 
-- **Code** : `200 OK`
+- **Code** : `200 Ok`
 
 - **Content example** :
 
@@ -77,7 +80,7 @@ Open endpoints require no authentication.
 
 - **Condition** : Some condition.
 
-- **Code** : `400 BAD REQUEST`
+- **Code** : `400 Bad Request`
 
 - **Content** : `{"error": "Error message"}`
 
@@ -95,13 +98,15 @@ Open endpoints require no authentication.
 
 - **Query params** : id
 
+- **Body** : None
+
 
 #### _Success Responses_
 
 
 - **Condition** : The books exists and it is accesible.
 
-- **Code** : `200 OK`
+- **Code** : `200 Ok`
 
 - **Content example** :
 
@@ -135,3 +140,66 @@ Open endpoints require no authentication.
 - **Code** : `400 Bad Request`
 
 - **Content** : `{"error": "Book not found"}`
+
+&nbsp;
+### Create A Book :
+
+
+- **URL** : `/books/`
+
+- **Method** : `POST`
+
+- **Auth required** : No
+
+- **Permissions required** : None
+
+- **Query params** : None
+
+- **Body** :
+    - title (required  | string | min : 1 | max : 50)
+    - author (required  | string | min : 1 | max : 50)
+    - genre (required  | string | accepted values: 'fantasy', 'sci-fi', 'historical', 'romance', 'biography', 'comedy', 'thriller', 'essay', 'others')
+    - publisher (required  | string | min : 1 | max : 50)
+    - releaseYear (required  | integer | min : 1 | max : 9999)
+
+
+#### _Success Responses_
+
+
+- **Condition** : Provided data is correct.
+
+- **Code** : `201 Created`
+
+- **Content example** :
+
+```json
+{
+    "message": "Book has been created",
+    "data": {
+        "bookId": 5
+    }
+}
+```
+
+#### _Error Responses_
+
+
+- **Condition** : Something went wrong accesing database.
+
+- **Code** : `500 Internal Server Error`
+
+- **Content example** : `{"error": "Error message"}`
+
+#### OR
+
+- **Condition** : Invalid provided data.
+
+- **Code** : `400 Bad Request`
+
+- **Content example** :
+
+```json
+{
+    "error": "\"title\" must be a string"
+}
+```
