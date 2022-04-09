@@ -14,7 +14,7 @@ const getBook = async (req, res) => {
     };
 
     if ( !book ) {
-        res.status( 400 );
+        res.status( 404 );
         res.send({ error:'Book not found' });
         return;
     };

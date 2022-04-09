@@ -142,7 +142,7 @@ Open endpoints require no authentication.
 
 - **Condition** : The book with the given id does not exist.
 
-- **Code** : `400 Bad Request`
+- **Code** : `404 Not found`
 
 - **Content** : `{"error": "Book not found"}`
 
