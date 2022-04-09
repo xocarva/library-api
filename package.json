@@ -1,6 +1,6 @@
 {
   "name": "library-api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "simple library management restful api",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Xoán Carneiro Vázquez",
-  "license": "ISC",
+  "license": "GNU GPLv3 license",
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
