@@ -31,7 +31,7 @@ Open endpoints require no authentication.
 - **Query params** : None
 
 
-### _Success Responses_
+#### _Success Responses_
 
 
 - **Condition** : There are no accesible Books.
@@ -40,7 +40,7 @@ Open endpoints require no authentication.
 
 - **Content** : `{[]}`.
 
-#### OR
+##### OR
 
 - **Condition** : There are accesible Books.
 
@@ -74,7 +74,7 @@ Open endpoints require no authentication.
 }
 ```
 
-### _Error Responses_
+#### _Error Responses_
 
 
 - **Condition** : Some condition.
@@ -98,7 +98,7 @@ Open endpoints require no authentication.
 - **Query params** : id
 
 
-### _Success Responses_
+#### _Success Responses_
 
 
 - **Condition** : The books exists and it is accesible.
@@ -121,7 +121,7 @@ Open endpoints require no authentication.
 }
 ```
 
-### _Error Responses_
+#### _Error Responses_
 
 
 - **Condition** : Something went wrong accesing database.
