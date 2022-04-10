@@ -1,7 +1,7 @@
 {
   "name": "library-api",
   "version": "1.0.0",
-  "description": "simple library management restful api",
+  "description": "simple library management REST API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
