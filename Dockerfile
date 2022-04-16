@@ -1,8 +1,7 @@
-FROM node:12-alpine3.14
+FROM node:16-alpine
 WORKDIR /app
-COPY package.json /app
-COPY package-lock.json /app
-RUN npm ci --only=production && npm cache clean --force
-COPY . /app
-CMD node index.js
-EXPOSE 8081
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3001
+CMD ["npm", "start"]
