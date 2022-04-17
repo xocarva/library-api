@@ -7,6 +7,8 @@ services:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: $MYSQL_DATABASE
     restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
   app:
     build: .
     env_file: ./.env
@@ -20,3 +22,5 @@ services:
     depends_on:
       - db
     restart: on-failure
+volumes:
+  dbdata:
