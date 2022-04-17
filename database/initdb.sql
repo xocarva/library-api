@@ -63,6 +63,3 @@ INSERT INTO books (title, author, genre, publisher, release_year, isbn)
         "3844930723451"
 );
 
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
-
-flush privileges;
