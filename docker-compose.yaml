@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   db:
-    build: ./database
+    image: mysql
     env_file: ./.env
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
@@ -9,6 +9,9 @@ services:
     restart: always
     volumes:
       - dbdata:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./database/data.sql:/docker-entrypoint-initdb.d/2.sql
+
   app:
     build: .
     env_file: ./.env
