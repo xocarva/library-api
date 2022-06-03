@@ -51,7 +51,7 @@ INSERT INTO books (title, author, genre, publisher, release_year, isbn)
 INSERT INTO books (title, author, genre, publisher, release_year, isbn)
     VALUES(
         "I",
-        "E.G. O'centric",
+        "EG Ocentric",
         "biography",
         "Tiresome Inc",
         "1993",
