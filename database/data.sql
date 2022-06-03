@@ -48,3 +48,14 @@ INSERT INTO books (title, author, genre, publisher, release_year, isbn)
         "3844930723451"
 );
 
+INSERT INTO books (title, author, genre, publisher, release_year, isbn)
+    VALUES(
+        "I",
+        "E.G. O'centric",
+        "biography",
+        "Tiresome Inc",
+        "1993",
+        "3844933313451"
+);
+
+
