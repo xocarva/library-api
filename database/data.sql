@@ -31,7 +31,7 @@ INSERT INTO books (title, author, genre, publisher, release_year, isbn)
 INSERT INTO books (title, author, genre, publisher, release_year, isbn)
     VALUES(
         "Leaving the office on time",
-        "Asimobbing",
+        "Isaac Asimobbing",
         "sci-fi",
         "Distopic Publishing",
         "2013",

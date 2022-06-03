@@ -35,7 +35,7 @@ const updateBook = async ( bookData ) => {
 
     if( releaseYear ) {
         if ( params.length > 0 ) query += ',';
-        query += ' releaseYear = ?';
+        query += ' release_year = ?';
         params.push( releaseYear );
     };
 
